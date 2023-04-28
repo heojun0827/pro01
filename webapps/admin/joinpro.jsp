@@ -6,6 +6,11 @@
 	response.setContentType("text/html; charset=UTF-8");
 	
 	String id = request.getParameter("id");
+	String pw = request.getParameter("pw");
+	String email = request.getParameter("email");
+	String tel = request.getParameter("tel");
+	String name = request.getParameter("name");
+	String addr = request.getParameter("addr");
 	
 	String driver = "org.postgresql.Driver";
 	String url = "jdbc:postgresql://localhost/pro01";
@@ -21,15 +26,20 @@
 		Class.forName(driver);
 		try {
 			conn = DriverManager.getConnection(url, user, pass);
-			sql = "delete from member where id=?";
+			sql = "insert into member values (?,?,?,?,?,?,default,default)";
 			try {
 				pstmt = conn.prepareStatement(sql);
 				pstmt.setString(1, id);
+				pstmt.setString(2, pw);
+				pstmt.setString(3, name);
+				pstmt.setString(4, email);
+				pstmt.setString(5, tel);
+				pstmt.setString(6, addr);
 				int n = pstmt.executeUpdate();
 				if(n>0){
-					response.sendRedirect("logout.jsp");
+					response.sendRedirect("member_manage.jsp");
 				} else {
-					response.sendRedirect("mypage.jsp?id="+id);
+					response.sendRedirect("memberInsert.jsp");
 				}
 				pstmt.close();
 				conn.close();

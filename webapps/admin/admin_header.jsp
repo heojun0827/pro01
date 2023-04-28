@@ -2,8 +2,10 @@
     pageEncoding="UTF-8"%>
 <%
 	String id = "";
+	String name = "";
 	if(session.getAttribute("id")!=null) {
 		id = (String) session.getAttribute("id");
+		name = (String) session.getAttribute("name");
 	}
 	String path1 = request.getContextPath();
 %>
@@ -35,68 +37,24 @@
                     </ul>
                 </div>
             </nav>
-             <div class="main">
+           <div class="main">
                 <div class="main_wrap">
                     <a href="index.jsp" class="logo">
                         <img src="./images/headerlogo.png" alt="현대모비스 로고">
                     </a>
-                     <nav class="gnb">
+                    <nav class="gnb">
                         <ul class="gnb_fr">
-                            <li><a href="<%=path1 %>/company.jsp">회사정보</a>
-                                <div class="sub item1">
-                                    <ul class="dp2">
-                                        <li><a href="<%=path1 %>/company.jsp#page1">회사개요</a></li>
-                                        <li><a href="<%=path1 %>/company.jsp#page2">인재채용</a></li>
-                                        <li><a href="<%=path1 %>/company.jsp#page3">글로벌네트워크</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a href="<%=path1 %>/manage.jsp">지속가능경영</a>
-                                <div class="sub item2">
-                                    <ul class="dp2">
-                                        <li><a href="<%=path1 %>/manage.jsp#page1">지속가능경영</a></li>
-                                        <li><a href="<%=path1 %>/manage.jsp#page2">컴플라이언스경영</a></li>
-                                        <li><a href="<%=path1 %>/manage.jsp#page3">환경경영</a></li>
-                                        <li><a href="<%=path1 %>/manage.jsp#page4">안전보건경영</a></li>
-                                        <li><a href="<%=path1 %>/manage.jsp#page5">사회공헌</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a href="<%=path1 %>/board/newsroom.jsp">뉴스룸</a>
-                                <div class="sub item3">
-                                    <ul class="dp2">
-                                        <li><a href="<%=path1 %>/board/newsroom.jsp#page1">보도자료</a></li>
-                                        <li><a href="<%=path1 %>/board/newsroom.jsp#page2">미디어</a></li>
-                                        <li><a href="<%=path1 %>/board/newsroom.jsp#page3">홍보영상/브로슈어</a></li>
-                                        <li><a href="<%=path1 %>/board/newsroom.jsp#page4">공지사항</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a href="<%=path1 %>/info.jsp">모빌리티기술</a>
-                                <div class="sub item4">
-                                    <ul class="dp2">
-                                        <li><a href="<%=path1 %>/info.jsp#page1">제품</a></li>
-                                        <li><a href="<%=path1 %>/info.jsp#page2">R&D</a></li>
-                                        <li><a href="<%=path1 %>/info.jsp#page3">오픈이노베이션</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a href="<%=path1 %>/info.jsp">투자정보</a>
-                                <div class="sub item5">
-                                    <ul class="dp2">
-                                            <li><a href="<%=path1 %>/info.jsp#page1">일반정보</a></li>
-                                        <li><a href="<%=path1 %>/info.jsp#page2">주가정보</a></li>
-                                        <li><a href="<%=path1 %>/info.jsp#page3">재무정보</a></li>
-                                        <li><a href="<%=path1 %>/info.jsp#page4">주요보고서</a></li>
-                                    </ul>
-                                </div>
-                            </li>
+                            <li><a href="<%=path1 %>/admin/member_manage.jsp">회원 관리</a></li>
+                            <li><a href="<%=path1 %>/admin/board_manage.jsp">게시판 관리</a></li>
+                            <li><a href="">경영 정보 관리</a></li>
+                            <li><a href="">투자정보 관리</a></li>
+                            <li><a href="">채용관리</a></li>
                         </ul>
                     </nav>
                     <label for="sitemap_ck" class="sitemap_btn" title="관계 사이트">관계 사이트</label>
                 </div>
             </div>
-            <input type="checkbox" id="sitemap_ck">
+           <input type="checkbox" id="sitemap_ck">
             <div class="sitemap">
               <div class="sitemap_fr">
                  <label for="sitemap_ck" class="close_btn">닫기</label>

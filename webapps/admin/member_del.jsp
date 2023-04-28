@@ -15,8 +15,7 @@
 	Connection conn = null;
 	PreparedStatement pstmt = null;
 	String sql = "";
-	String passId = "";
-	
+	int n = 0;
 	try {
 		Class.forName(driver);
 		try {
@@ -24,12 +23,11 @@
 			sql = "delete from member where id=?";
 			try {
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, id);
-				int n = pstmt.executeUpdate();
+				n = pstmt.executeUpdate(sql);
 				if(n>0){
-					response.sendRedirect("logout.jsp");
+					response.sendRedirect("./member_manage.jsp");
 				} else {
-					response.sendRedirect("mypage.jsp?id="+id);
+					response.sendRedirect("./member_manage.jsp");
 				}
 				pstmt.close();
 				conn.close();

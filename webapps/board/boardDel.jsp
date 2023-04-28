@@ -4,8 +4,8 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	response.setContentType("text/html; charset=UTF-8");
-	
-	String id = request.getParameter("id");
+
+	int bid = Integer.parseInt(request.getParameter("bid"));
 	
 	String driver = "org.postgresql.Driver";
 	String url = "jdbc:postgresql://localhost/pro01";
@@ -21,15 +21,15 @@
 		Class.forName(driver);
 		try {
 			conn = DriverManager.getConnection(url, user, pass);
-			sql = "delete from member where id=?";
+			sql = "delete from board where bid=?";
 			try {
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, id);
+				pstmt.setInt(1, bid);		//bid
 				int n = pstmt.executeUpdate();
 				if(n>0){
-					response.sendRedirect("logout.jsp");
+					response.sendRedirect("./newsroom.jsp#page4");
 				} else {
-					response.sendRedirect("mypage.jsp?id="+id);
+					response.sendRedirect("./boardDetail.jsp?bid="+bid);
 				}
 				pstmt.close();
 				conn.close();
